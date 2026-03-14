@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comentarios', function (Blueprint $table) {
-            $table->id();
-            $table->text('contenido')->nullable();
+        Schema::create('calificacion', function (Blueprint $table) {
+             $table->id();
+            $table->text('puntaje')->nullable();
             $table->BigInteger('user_id')->unsigned(); 
             $table->Integer('hacia_cu_in')->unsigned(); 
             $table->BigInteger('curso_instructor_id')->unsigned();  
              $table->foreign('user_id')->references('id')->on('users');
- 
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comentarios');
+        Schema::dropIfExists('calificacion');
     }
 };
