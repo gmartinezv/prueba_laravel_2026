@@ -1,9 +1,5 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
 **************************************************
 ### PRUEBA LARAVEL  
 
@@ -40,9 +36,65 @@ debiendo optimizarse esta consulta lo máximo posible.**
 **Importante**: A efectos de realizar la prueba, para simplificar, no se requiere autenticar 
 las peticiones ni validar el usuario que las hace.  
 
- **************************************************.
+ 
 
-### Premium Partners 
-## License
+**************************************************
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ 
+**************************************************
+
+
+**************************************************
+
+## LARAVEL PRUEBA 
+
+* Version  10.3.3
+   
+* php 8.1.31
+
+
+**COMANDOS EJECUTADOS:** 
+  * composer create-project laravel/laravel prueba_laravel			
+  * cree o copie el archivo index.php para no ver las carptas o ejecutar la app desde public
+  * tambien copie .htaccess
+  * en config/database.php modifique la linea :  'engine' => env('DB_ENGINE', 'InnoDB'), (para enviar el error al hacer migrate)
+
+     '# php artisan migrate
+    
+	 '# php artisan make:migration create_instructor_table	
+    
+	php artisan make:seeder UsersTableSeeder
+    php artisan db:seed  
+    php artisan make:seeder InstructorTableSeeder
+
+### Tablas:   (punto 1)
+
+ instructor ---- id, user_id, alguna_referencia 
+ 
+ curso      ---- id, nombre, instructor_id
+ 
+ leccion    ---- id, titulo, contenido, video, curso_id 
+ 
+ favorito   ---- id, user_id, curso_id 
+ 
+ comentario ---- id, tipo_coment, hacia_ci, curso_instructor_id, contenido 
+ 
+
+composer require laravel/sanctum    (para ejecutar la API)
+
+
+### direcciones o rutas creadas 
+
+./api/cursos    --> GET, Post, Put, Delete  (punto 2)
+
+./cursos    (Punto 3 y 4)
+
+
+### .
+
+**.**
+
+
+
+
+
