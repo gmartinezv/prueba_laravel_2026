@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('calificacion', function (Blueprint $table) {
              $table->id();
-            $table->text('puntaje')->nullable();
+            $table->text('contenido')->nullable();
+            $table->Integer('puntaje')->nullable();
             $table->BigInteger('user_id')->unsigned(); 
             $table->Integer('hacia_cu_in')->unsigned(); 
             $table->BigInteger('curso_instructor_id')->unsigned();  

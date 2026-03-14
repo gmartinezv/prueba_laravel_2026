@@ -6,9 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\Cursos;
 use Illuminate\Support\Facades\Validator;
 
+use App\Services\CursosRaitingService;
+
+
 class CursosController extends Controller
 {
     //
+    protected $ratingService;
+
+    // Inyectamos el servicio en el constructor
+    public function __construct( CursosRaitingService $ratingService)
+    {
+        $this->ratingService = $ratingService;
+    }
+    
     function index(){
         // return "probando rutas api en laravel Controller ";
         $cursos = Cursos::all();
@@ -58,10 +69,7 @@ class CursosController extends Controller
 
             if (!$curso) {                
             return response()->json(['message' => 'Curso no encontrado'], 404);
-            }
-            
-            
-
+            }                        
             $curso->delete();
 
             return response()->json(['message' => 'Curso eliminado'], 200);
@@ -96,7 +104,29 @@ class CursosController extends Controller
 
         return response()->json($curso, 200);   
 
-
         } 
+
+
+
+
+        function Principal(){
+
+
+        // Usamos el método del servicio
+        $raiting = $this->ratingService->getAverageRatings();
+
+        
+
+
+        $cursos = Cursos::select('cursos.id', 'cursos.nombre', 'instructor_id', 'users.name as instructor' )         
+        ->join('instructor', 'cursos.instructor_id', 'instructor.id')
+        ->join('users', 'instructor.user_id', 'users.id'  )        
+        ->cursorPaginate(3);
+               //   ->paginate(3)       ;
+               // ->simplePaginate(3);
+
+
+            return view('principal', compact('cursos', 'raiting') );
+        }
 
 }
