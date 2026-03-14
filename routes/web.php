@@ -18,8 +18,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/cursos2', function () {
-    return  " probando rutas en laravel";
-});
-
 Route::get('/cursos', [App\Http\Controllers\CursosController::class, 'Principal']);

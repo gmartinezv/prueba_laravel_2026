@@ -120,7 +120,7 @@ class CursosController extends Controller
 
         $cursos = Cursos::select('cursos.id', 'cursos.nombre', 'instructor_id', 'users.name as instructor' )         
         ->join('instructor', 'cursos.instructor_id', 'instructor.id')
-        ->join('users', 'instructor.user_id', 'users.id'  )        
+        ->join('users', 'instructor.user_id', 'users.id')        
         ->cursorPaginate(3);
                //   ->paginate(3)       ;
                // ->simplePaginate(3);

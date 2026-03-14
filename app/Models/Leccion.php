@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Leccion extends Model
+{
+    protected $table = "leccion";
+    public $timestamps = false;
+}

@@ -93,7 +93,13 @@
                     </div>  
                     </div>  
 
-  {{  $raiting['sql']  }}
+
+                    <!--   Sql_ 
+
+              {{  $raiting['sql']  }}
+
+
+                    -->
 
         </div>  
 
